@@ -2,7 +2,7 @@ import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Image from "next/image";
-import Banner from "/app/ui/static/codebasebanner.jpeg";
+import Banner from "@/public/static/codebasebanner.jpeg";
 
 
 export default function SideNav() {

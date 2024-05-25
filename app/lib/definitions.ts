@@ -7,82 +7,80 @@ export type User = {
   name: string;
   email: string;
   password: string;
+  admin: boolean;
 };
 
-export type Customer = {
+export type Team = {
   id: string;
   name: string;
+  active: string;
+}
+
+export type Developer = {
+  id: string;
+  name: string;
+  team_id: string;
   email: string;
+  phone: string;
   image_url: string;
 };
 
-export type Invoice = {
+export type Task = {
   id: string;
-  customer_id: string;
-  amount: number;
-  date: string;
+  team_id: string;
+  name: string;
+  notes: string;
   // In TypeScript, this is called a string union type.
   // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
-  status: 'pending' | 'paid';
-};
-
-export type Revenue = {
-  month: string;
-  revenue: number;
-};
-
-export type LatestInvoice = {
-  id: string;
-  name: string;
-  image_url: string;
-  email: string;
-  amount: string;
+  status: 'pending' | 'completed' | 'backlog' | 'archived' | 'todo';
+  date: string;
 };
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
-export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
-  amount: number;
+export type DeveloperTable = {
+  id: string;
+  team_id: string;
+  name: string;
+  team_name: string;
+  image_url: string;
+  phone: string;
 };
 
-export type InvoicesTable = {
+export type TaskTable = {
   id: string;
-  customer_id: string;
+  team_id: string;
   name: string;
-  email: string;
-  image_url: string;
+  team_name: string;
+  notes: string;
+  status: 'pending' | 'completed' | 'backlog' | 'archived' | 'todo';
   date: string;
-  amount: number;
-  status: 'pending' | 'paid';
 };
 
-export type CustomersTableType = {
+export type TeamTableType = {
   id: string;
   name: string;
-  email: string;
-  image_url: string;
-  total_invoices: number;
-  total_pending: number;
-  total_paid: number;
+  members: string[];
+  pending_tasks: number;
+  total_tasks: number;
+  active: string;
 };
 
-export type FormattedCustomersTable = {
+export type ImportantLink = {
   id: string;
   name: string;
-  email: string;
-  image_url: string;
-  total_invoices: number;
-  total_pending: string;
-  total_paid: string;
+  url: string;
 };
 
-export type CustomerField = {
+export type TeamField = {
   id: string;
   name: string;
+  active: string;
 };
 
-export type InvoiceForm = {
+export type TaskForm = {
   id: string;
-  customer_id: string;
-  amount: number;
-  status: 'pending' | 'paid';
+  team_id: string;
+  name: string;
+  notes: string;
+  status: 'pending' | 'completed' | 'backlog' | 'archived' | 'todo';
 };

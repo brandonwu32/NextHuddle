@@ -7,7 +7,7 @@ export default function CodebaseLogo() {
       className={`${inter.className} flex flex-row items-center leading-none text-white`}
     >
       <HeartIcon className="h-12 w-12 rotate-[-15deg] mr-[10px]" />
-      <p className="text-[44px]"> Codebase</p>
+      <p className="text-[44px]"> Mentored Team</p>
     </div>
   );
 }

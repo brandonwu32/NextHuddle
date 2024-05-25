@@ -23,7 +23,6 @@ const links = [
   },
   { name: 'Developers', href: '/dashboard/developers', icon: UserCircleIcon },
   { name: 'Teams', href: '/dashboard/teams', icon: UserGroupIcon },
-
 ];
 
 
